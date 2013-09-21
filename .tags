@@ -1,0 +1,36 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Member	oooGenerator.py	/^class Member(object):$/;"	c
+OooDBManaber	oooGenerator.py	/^class OooDBManaber(object):$/;"	c
+OooGenerator	oooGenerator.py	/^class OooGenerator(object):$/;"	c
+__init__	oooGenerator.py	/^	def __init__(self):$/;"	m	class:OooDBManaber
+__init__	oooGenerator.py	/^	def __init__(self):$/;"	m	class:OooGenerator
+__init__	oooGenerator.py	/^	def __init__(self, id, name):$/;"	m	class:Member
+_createMemberTable	oooGenerator.py	/^	def _createMemberTable(self):$/;"	m	class:OooDBManaber
+_createPairTable	oooGenerator.py	/^	def _createPairTable(self):$/;"	m	class:OooDBManaber
+_createScheduleTable	oooGenerator.py	/^	def _createScheduleTable(self):$/;"	m	class:OooDBManaber
+_insertAllMembers	oooGenerator.py	/^	def _insertAllMembers(self):$/;"	m	class:OooDBManaber
+_insertPair	oooGenerator.py	/^	def _insertPair(self, memberId1, memberId2):$/;"	m	class:OooDBManaber
+_insertSchedule	oooGenerator.py	/^	def _insertSchedule(self, id):$/;"	m	class:OooDBManaber
+caliculate_schedule	oooGenerator.py	/^	def caliculate_schedule(self, filename):$/;"	m	class:OooGenerator
+chars	oooGenerator.py	/^    chars = list(line.rstrip())$/;"	v
+close	oooGenerator.py	/^	def close(self):$/;"	m	class:OooDBManaber
+connectToDatabase	oooGenerator.py	/^	def connectToDatabase(self, path):$/;"	m	class:OooDBManaber
+createPared	oooGenerator.py	/^	def createPared(self):$/;"	m	class:OooDBManaber
+dt	oooGenerator.py	/^from datetime import datetime as dt$/;"	i
+generator	oooGenerator.py	/^generator = OooGenerator()$/;"	v
+initialize	oooGenerator.py	/^	def initialize(self):$/;"	m	class:OooGenerator
+initializeDatabase	oooGenerator.py	/^	def initializeDatabase(self):$/;"	m	class:OooDBManaber
+isCompleted	oooGenerator.py	/^	def isCompleted(self):$/;"	m	class:OooDBManaber
+memberFileName	oooGenerator.py	/^	memberFileName = 'members.dat'$/;"	v	class:OooDBManaber
+members	oooGenerator.py	/^	def members(self):$/;"	m	class:OooDBManaber
+notScheduledMemberIds	oooGenerator.py	/^	def notScheduledMemberIds(self):$/;"	m	class:OooDBManaber
+os	oooGenerator.py	/^import sys, os$/;"	i
+random	oooGenerator.py	/^import random$/;"	i
+scheduleIds	oooGenerator.py	/^	def scheduleIds(self):$/;"	m	class:OooDBManaber
+sqlite3	oooGenerator.py	/^import sqlite3$/;"	i
+sys	oooGenerator.py	/^import sys, os$/;"	i
