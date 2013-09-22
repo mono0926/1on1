@@ -14,6 +14,7 @@ else:
 import sqlite3
 from datetime import datetime as dt
 import random
+import codecs
 
 
 class OooGenerator(object):
@@ -35,6 +36,10 @@ class OooGenerator(object):
 
 	def result(self):
 		return self.dbManager.result()
+
+	def export(self, db_path):
+		self.dbManager.connectToDatabase(db_path)
+		return self.dbManager.export()
 
 
 class Member(object):
@@ -88,6 +93,35 @@ class OooDBManaber(object):
 			if count < memberNum:
 				return False
 		return True
+
+	def export(self):
+		f = codecs.open("result.csv", "w", "utf-8")
+		members = self.members
+		memberIds = set([m.id for m in members])
+		memberNames = [m.name for m in members]
+		print(','.join(memberNames))
+		f.write(','.join(memberNames) + '\n')
+		for sid in self.scheduleIds:
+			print('{0}日目'.format(sid))
+			c = self.conneciton.cursor()
+			c.execute(u'SELECT * FROM Pair WHERE ScheduleId = {0}'.format(sid))
+			selectedMemberIds = set()
+			pairDict = {}
+			for pair in c:
+				pairDict[pair[1]] = pair[2]
+				pairDict[pair[2]] = pair[1]
+				m1 = [x for x in members if x.id == pair[1]][0]
+				m2 = [x for x in members if x.id == pair[2]][0]
+				print('{0} and {1}'.format(m1.name, m2.name))
+				selectedMemberIds.add(m1.id)
+				selectedMemberIds.add(m2.id)
+			print(pairDict)
+			print(memberIds - selectedMemberIds)
+			formatted = ','.join([memberNames[pairDict[mid]] if mid in selectedMemberIds and mid < pairDict[mid] else '←' if mid in selectedMemberIds else '-' for mid in memberIds])
+			print(formatted)
+			f.write(formatted + '\n')
+		f.close()
+			
 
 	def result(self):
 		c = self.conneciton.cursor()
@@ -186,6 +220,7 @@ class OooDBManaber(object):
 		print(memberId2)
 		self.conneciton.commit()
 	
+'''
 num = 1000	
 best = None
 for i in range(10000):
@@ -199,3 +234,8 @@ for i in range(10000):
 		best = filename
 print(num)
 print(best)
+'''
+
+generator = OooGenerator()
+generator.export('data.db')
+
